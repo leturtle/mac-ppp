@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ "${5:-}" = "192.168.3.10" ]
+then
+    export PATH="/sbin:/usr/sbin:/usr/bin"
+    #networksetup -setdnsservers Wi-Fi 192.168.160.11
+    networksetup -setautoproxyurl "Aijihui" http://192.168.2.200/proxy.pac
+    dscacheutil -flushcache
+    route add 192.168.3.0/20 $4
+fi
